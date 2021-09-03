@@ -3,15 +3,11 @@ const searchBook = () => {
     const searchText = searchField.value;
     searchField.value = '';
     const failEror = document.getElementById ('fail-notify'); 
-    if(searchText === ''){
         failEror.style.display = 'block';
-    }
-    else{
-        const url = `http://openlibrary.org/search.json?q=${searchText}`
+        const url = `https://openlibrary.org/search.json?q=${searchText}`
         fetch(url)
         .then(res => res.json())
         .then(data => displaySearchResult(data.docs))  
-    }
 }
 
 const displaySearchResult = docses => {
